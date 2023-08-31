@@ -1,3 +1,3 @@
 # czasopismo-MATINF.github.io
 
-CZASOPISMO MATINF
+# CZASOPISMO MATINF
