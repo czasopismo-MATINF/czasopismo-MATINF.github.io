@@ -1,2 +1,78 @@
-index.html test
-<iframe src="https://www.google.com/maps/d/embed?mid=1HL-XBtY5ogXPJh3Gl-wIyBqxulfSR8A&ehbc=2E312F" width="640" height="480"></iframe>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head profile="http://gmpg.org/xfn/11">
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+
+		<script type="text/javascript" src="javascript/jquery.js"></script>
+	</head>
+
+<body>
+
+<script type="text/javascript">
+
+	var defaultTitleHover = "Szablon oraz obrazki na stronie z pierwszej dekady XXI wieku. Dobrane wtedy - bez zmian - przez Redakcję. Adres w banerze archiwalny.";
+
+	function pictureChange(img, newImg) {
+		img.src = "img/" + newImg;
+	}
+
+	function titleHover(val) {
+		if(val == "default") val = defaultTitleHover;
+		document.getElementById("output").innerHTML = val;
+	}
+
+	var $titleHover = [];
+	for($i = 0; $i < 8; ++$i) {
+		$titleHover[$i] = '' + $i;
+	}
+	$titleHover[6] = 'MAPY';
+
+	function getPage(page) {
+		if(page == 'mapy') {
+			return true;
+		}
+		return false;
+	}
+	
+</script>
+
+	<div id="page-container">
+
+		<div id="cx-gate"></div>
+
+		<div id="cx-left">
+			<div class="cxf" onmouseover="titleHover($titleHover[0]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">							<img onmouseover="pictureChange(this,'chest.jpg');"		onmouseout="pictureChange(this,'flower.jpg');"	class="menuImage" src="img/flower.jpg" ></a></div>
+			<div class="cxf" onmouseover="titleHover($titleHover[1]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">							<img onmouseover="pictureChange(this,'knot.jpg');"		onmouseout="pictureChange(this,'bird.jpg');"	class="menuImage" src="img/bird.jpg" ></a></div>
+			<div class="cxf" onmouseover="titleHover($titleHover[2]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">							<img onmouseover="pictureChange(this,'jolly.jpg');"		onmouseout="pictureChange(this,'laptop.jpg');"	class="menuImage" src="img/laptop.jpg" ></a></div>
+			<div class="cxf" onmouseover="titleHover($titleHover[3]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">							<img onmouseover="pictureChange(this,'bottle.jpg');"	onmouseout="pictureChange(this,'phone.jpg');"	class="menuImage" src="img/phone.jpg" ></a></div>
+		</div>
+
+		<div id="cx-right">
+			<div class="cxf" onmouseover="titleHover($titleHover[4]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">									<img onmouseover="pictureChange(this,'spaceshuttleeva.jpg');"	onmouseout="pictureChange(this,'palm.jpg');"		class="menuImage" src="img/palm.jpg" ></a></div>
+			<div class="cxf" onmouseover="titleHover($titleHover[5]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">									<img onmouseover="pictureChange(this,'arcdetriomphe.jpg');"		onmouseout="pictureChange(this,'pineapple.jpg');"	class="menuImage" src="img/pineapple.jpg" ></a></div>
+			<div class="cxf" onmouseover="titleHover($titleHover[6]);" onmouseout="titleHover('default');"><a class="menuLink" href="mapy.html" onclick="return getPage('mapy');">	<img onmouseover="pictureChange(this,'map.jpg');"				onmouseout="pictureChange(this,'sunset.jpg');"		class="menuImage" src="img/sunset.jpg" ></a></div>
+			<div class="cxf" onmouseover="titleHover($titleHover[7]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">									<img onmouseover="pictureChange(this,'pacificwalrus.jpg');"		onmouseout="pictureChange(this,'fish.jpg');"		class="menuImage" src="img/fish.jpg" ></a></div>
+		</div>
+
+		<div id="top-margin">
+			<div class="clear"></div>
+		</div>
+
+		<div id="page-content">
+
+			<div id="masthead">
+				<div class="banner"><img class="banner" src="img/banner.png"/><img class="rightBanner" src="img/shells.jpg"/></div>
+			</div>
+
+			<div id="column-container">
+				<div id="left-column">
+					<div id="output" class="inside-column">Szablon oraz obrazki na stronie z pierwszej dekady XXI wieku. Dobrane wtedy - bez zmian - przez Redakcję.</div>
+				</div>
+			</div>
+
+		</div>
+
+	</body>
+</html>
