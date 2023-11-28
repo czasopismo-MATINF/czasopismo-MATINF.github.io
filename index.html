@@ -13,27 +13,38 @@
 <script type="text/javascript">
 
 	var defaultTitleHover = "Szablon oraz obrazki na stronie z pierwszej dekady XXI wieku. Dobrane wtedy - bez zmian - przez Redakcję. Adres w banerze archiwalny.";
-
-	function pictureChange(img, newImg) {
-		img.src = "img/" + newImg;
-	}
-
-	function titleHover(val) {
-		if(val == "default") val = defaultTitleHover;
-		document.getElementById("output").innerHTML = val;
-	}
-
-	var $titleHover = [];
-	for($i = 0; $i < 8; ++$i) {
-		$titleHover[$i] = '' + $i;
-	}
-	$titleHover[6] = 'MAPY';
-
-	function getPage(page) {
+	
+	var images = [1,1,1,1,1,1,1,1];
+	var imagesFiles = [
+		['chest.jpg', 'flower.jpg'],
+		['knot.jpg', 'bird.jpg'],
+		['jolly.jpg', 'laptop.jpg'],
+		['bottle.jpg', 'phone.jpg'],
+		['spaceshuttleeva.jpg', 'palm.jpg'],
+		['arcdetriomphe.jpg', 'pineapple.jpg'],
+		['map.jpg', 'sunset.jpg'],
+		['pacificwalrus.jpg', 'fish.jpg']
+	];
+	var page = [0,0];
+	
+	function getPageSource(page) {
 		if(page == 'mapy') {
-			return true;
+			return '<a href="mapy.html">MAPY</a>';
 		}
-		return false;
+	}
+	
+	function getPage(i, j) {
+		if(page[0] == 6 && page[1] == 0) {
+			return getPageSource('mapy');
+		}
+		return '' + i + ' ' + j;
+	}
+	
+	function pictureChange(img, newImg) {
+		images[newImg] = (images[newImg] + 1) % 2;
+		img.src = "img/" + imagesFiles[newImg][images[newImg]];
+		page = [newImg, images[newImg]];
+		document.getElementById("output").innerHTML = getPage(page[0],page[1]);
 	}
 	
 </script>
@@ -43,17 +54,17 @@
 		<div id="cx-gate"></div>
 
 		<div id="cx-left">
-			<div class="cxf" onmouseover="titleHover($titleHover[0]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">							<img onmouseover="pictureChange(this,'chest.jpg');"		onmouseout="pictureChange(this,'flower.jpg');"	class="menuImage" src="img/flower.jpg" ></a></div>
-			<div class="cxf" onmouseover="titleHover($titleHover[1]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">							<img onmouseover="pictureChange(this,'knot.jpg');"		onmouseout="pictureChange(this,'bird.jpg');"	class="menuImage" src="img/bird.jpg" ></a></div>
-			<div class="cxf" onmouseover="titleHover($titleHover[2]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">							<img onmouseover="pictureChange(this,'jolly.jpg');"		onmouseout="pictureChange(this,'laptop.jpg');"	class="menuImage" src="img/laptop.jpg" ></a></div>
-			<div class="cxf" onmouseover="titleHover($titleHover[3]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">							<img onmouseover="pictureChange(this,'bottle.jpg');"	onmouseout="pictureChange(this,'phone.jpg');"	class="menuImage" src="img/phone.jpg" ></a></div>
+			<div class="cxf" onmouseover="" onmouseout=""><a class="menuLink" href="" onclick="return false;">	<img onmouseover="pictureChange(this, 0);"		onmouseout=""	class="menuImage" src="img/flower.jpg" ></a></div>
+			<div class="cxf" onmouseover="" onmouseout=""><a class="menuLink" href="" onclick="return false;">	<img onmouseover="pictureChange(this, 1);"		onmouseout=""	class="menuImage" src="img/bird.jpg" ></a></div>
+			<div class="cxf" onmouseover="" onmouseout=""><a class="menuLink" href="" onclick="return false;">	<img onmouseover="pictureChange(this, 2);"		onmouseout=""	class="menuImage" src="img/laptop.jpg" ></a></div>
+			<div class="cxf" onmouseover="" onmouseout=""><a class="menuLink" href="" onclick="return false;">	<img onmouseover="pictureChange(this, 3);"		onmouseout=""	class="menuImage" src="img/phone.jpg" ></a></div>
 		</div>
 
 		<div id="cx-right">
-			<div class="cxf" onmouseover="titleHover($titleHover[4]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">									<img onmouseover="pictureChange(this,'spaceshuttleeva.jpg');"	onmouseout="pictureChange(this,'palm.jpg');"		class="menuImage" src="img/palm.jpg" ></a></div>
-			<div class="cxf" onmouseover="titleHover($titleHover[5]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">									<img onmouseover="pictureChange(this,'arcdetriomphe.jpg');"		onmouseout="pictureChange(this,'pineapple.jpg');"	class="menuImage" src="img/pineapple.jpg" ></a></div>
-			<div class="cxf" onmouseover="titleHover($titleHover[6]);" onmouseout="titleHover('default');"><a class="menuLink" href="mapy.html" onclick="return getPage('mapy');">	<img onmouseover="pictureChange(this,'map.jpg');"				onmouseout="pictureChange(this,'sunset.jpg');"		class="menuImage" src="img/sunset.jpg" ></a></div>
-			<div class="cxf" onmouseover="titleHover($titleHover[7]);" onmouseout="titleHover('default');"><a class="menuLink" href="" onclick="">									<img onmouseover="pictureChange(this,'pacificwalrus.jpg');"		onmouseout="pictureChange(this,'fish.jpg');"		class="menuImage" src="img/fish.jpg" ></a></div>
+			<div class="cxf" onmouseover="" onmouseout=""><a class="menuLink" href="" onclick="return false;">	<img onmouseover="pictureChange(this, 4);"	onmouseout=""	class="menuImage" src="img/palm.jpg" ></a></div>
+			<div class="cxf" onmouseover="" onmouseout=""><a class="menuLink" href="" onclick="return false;">	<img onmouseover="pictureChange(this, 5);"	onmouseout=""	class="menuImage" src="img/pineapple.jpg" ></a></div>
+			<div class="cxf" onmouseover="" onmouseout=""><a class="menuLink" href="" onclick="return false;">	<img onmouseover="pictureChange(this, 6);"	onmouseout=""	class="menuImage" src="img/sunset.jpg" ></a></div>
+			<div class="cxf" onmouseover="" onmouseout=""><a class="menuLink" href="" onclick="return false;">	<img onmouseover="pictureChange(this, 7);"	onmouseout=""	class="menuImage" src="img/fish.jpg" ></a></div>
 		</div>
 
 		<div id="top-margin">
